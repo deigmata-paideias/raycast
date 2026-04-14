@@ -1,0 +1,68 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "time-tools",
+  "title": "Time Tools",
+  "description": "时间工具插件，支持毫秒级精度、多时区显示和时间戳转换",
+  "icon": "icon.png",
+  "author": "raycast",
+  "platforms": ["macOS"],
+  "categories": ["Productivity", "Developer Tools"],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "index",
+      "title": "Show Current Time",
+      "description": "显示当前时间，支持毫秒级精度和多时区",
+      "mode": "view"
+    },
+    {
+      "name": "timestamp-converter",
+      "title": "Convert Timestamp",
+      "description": "将时间戳转换为具体时间显示",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "timestamp",
+          "type": "text",
+          "placeholder": "输入时间戳（10位秒或13位毫秒）",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "preferences": [
+    {
+      "name": "additionalTimezones",
+      "title": "Additional Timezones",
+      "description": "配置额外显示的时区（支持 IANA 名称如 Asia/Shanghai 或 UTC 偏移如 UTC+8，多个用逗号分隔）",
+      "type": "textfield",
+      "required": false,
+      "default": "Asia/Shanghai,America/New_York"
+    },
+    {
+      "name": "refreshInterval",
+      "title": "Refresh Interval",
+      "description": "UI 刷新间隔（毫秒，范围 100-1000）",
+      "type": "textfield",
+      "required": false,
+      "default": "100"
+    }
+  ],
+  "scripts": {
+    "dev": "ray develop",
+    "build": "ray build -e dist",
+    "lint": "ray lint",
+    "fix-lint": "ray lint --fix",
+    "publish": "npx @raycast/api@latest publish"
+  },
+  "dependencies": {
+    "@raycast/api": "^1.80.0"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^1.0.11",
+    "@types/node": "^20.10.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.0",
+    "typescript": "^5.3.0"
+  }
+}
