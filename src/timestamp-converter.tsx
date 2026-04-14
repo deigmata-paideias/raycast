@@ -96,27 +96,22 @@ export default function TimestampConverter(props: { arguments?: Arguments }) {
               <Action.CopyToClipboard
                 title="Copy Converted Time"
                 content={result.formatted}
-                shortcut={{ modifiers: ["cmd"], key: "c" }}
               />
               <Action.CopyToClipboard
                 title="Copy ISO String"
                 content={result.iso}
-                shortcut={{ modifiers: ["cmd", "shift"], key: "c" }}
               />
               <Action.CopyToClipboard
                 title="Copy Unix Timestamp (Seconds)"
                 content={String(result.unixSec)}
-                shortcut={{ modifiers: ["cmd"], key: "u" }}
               />
               <Action.CopyToClipboard
                 title="Copy Unix Timestamp (Milliseconds)"
                 content={String(result.unixMs)}
-                shortcut={{ modifiers: ["cmd", "shift"], key: "u" }}
               />
               <Action.Paste
                 title="Paste Converted Time"
                 content={result.formatted}
-                shortcut={{ modifiers: ["cmd"], key: "p" }}
               />
             </>
           )}

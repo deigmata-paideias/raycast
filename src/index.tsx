@@ -91,21 +91,7 @@ export default function ShowCurrentTime() {
       }
     };
 
-    return (
-      <Action.CopyToClipboard
-        title={title}
-        content={getContent()}
-        shortcut={
-          format === "full"
-            ? { modifiers: ["cmd"], key: "enter" }
-            : format === "date-weekday"
-              ? { modifiers: ["cmd", "shift"], key: "c" }
-              : format === "unix-sec"
-                ? { modifiers: ["cmd"], key: "u" }
-                : undefined
-        }
-      />
-    );
+    return <Action.CopyToClipboard title={title} content={getContent()} />;
   };
 
   return (
@@ -137,7 +123,6 @@ export default function ShowCurrentTime() {
               <Action.Paste
                 title="Paste Current Time"
                 content={getCurrentTime().formatted}
-                shortcut={{ modifiers: ["cmd"], key: "p" }}
               />
             </ActionPanel>
           }
@@ -153,7 +138,6 @@ export default function ShowCurrentTime() {
               <Action.CopyToClipboard
                 title="Copy Unix Timestamp (Seconds)"
                 content={String(timeState.timestampSec)}
-                shortcut={{ modifiers: ["cmd"], key: "enter" }}
               />
               <Action.CopyToClipboard
                 title="Copy Unix Timestamp (Milliseconds)"
@@ -173,7 +157,6 @@ export default function ShowCurrentTime() {
               <Action.CopyToClipboard
                 title="Copy Unix Timestamp (Milliseconds)"
                 content={String(timeState.timestampMs)}
-                shortcut={{ modifiers: ["cmd"], key: "enter" }}
               />
             </ActionPanel>
           }
@@ -188,7 +171,6 @@ export default function ShowCurrentTime() {
               <Action.CopyToClipboard
                 title="Copy ISO String"
                 content={isoString}
-                shortcut={{ modifiers: ["cmd"], key: "enter" }}
               />
             </ActionPanel>
           }
@@ -203,7 +185,6 @@ export default function ShowCurrentTime() {
               <Action.CopyToClipboard
                 title="Copy Date + Weekday"
                 content={formattedDate}
-                shortcut={{ modifiers: ["cmd"], key: "enter" }}
               />
             </ActionPanel>
           }
@@ -228,7 +209,6 @@ export default function ShowCurrentTime() {
                     <Action.CopyToClipboard
                       title={`Copy ${tz.name} Time`}
                       content={formatTimeInZone(getCurrentTime().date, tz)}
-                      shortcut={{ modifiers: ["cmd"], key: "enter" }}
                     />
                     <Action.CopyToClipboard
                       title={`Copy ${tz.name} Timezone`}
